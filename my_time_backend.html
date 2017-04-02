@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script type="text/php" src="myTime.php"></script>
+</head>
+<head>
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <label for="username">USERNAME</label>
+    <input type="text" id="username" name="username" /><br/>
+    <label for="info">USERS INFO:</label>
+    <input type="text" id="info" name="info" /><br/>
+
+    <input type="submit" value="Submit" name="submit"/>
+</form>
+
+<script>
+function showUser(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","getuser.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+</head>
+<body>
+
+<form>
+<select name="users" onchange="showUser(this.value)">
+  <option value="">Select a thing:</option>
+  <option value="1">name</option>
+  <option value="2">tag</option>
+  <option value="3">duration</option>
+  <option value="4">satisfaction</option>
+  </select>
+</form>
+<br>
+<div id="txtHint"><b>Person info will be listed here...</b></div>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Demo</title>
+</head>
+<body>
+    <canvas id="circle" width="400" height="300">Your Time Graph</canvas>
+</body>
+</body>
+</html>
