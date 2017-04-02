@@ -1,6 +1,6 @@
 <?php
 
-    define('DB_HOST', 'localhost');
+    define('DB_HOST', 'localhost');//codes for link mysql
     define('DB_USER', 'renfei');
     define('DB_PASS', 'root');
     define('DB_NAME', 'database_name');
@@ -12,21 +12,29 @@
 
 ?>
 
+
+
 <?php
 
-    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);//codes for sign up
 
-    if (isset($_POST['submit'])) {
-        $user = $_POST['username'];
-        $info = $_POST['info'];
-        $query = "INSERT INTO table_name (tb_user, tb_info) VALUES ('$user', '$info')";
-        mysqli_query($dbc, $query);
-        echo "<p>you have submitted successfully!</p>";
+    if (!empty($user) && !empty($info)) {//no empty info
+        if (isset($_POST['submit'])) { //we upload the info in database after submitting
+            $user = $_POST['username'];
+            $info = $_POST['info'];
+            $query = "INSERT INTO table_name (tb_user, tb_info) VALUES ('$user', '$info')";
+            mysqli_query($dbc, $query);
+            echo "<p>you have submitted successfully!</p>";
+            mysqli_close($dbc);
+        }
+    }
+    else{
+        echo "Please complete all information!";
     }
 
-    mysqli_close($dbc);
 
 ?>
+
 
 
 
