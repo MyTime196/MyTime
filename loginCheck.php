@@ -12,7 +12,7 @@ if($link)
       $password=$_POST["passwordl"];
       if($username==""||$password=="")// if name or password
       {
-        echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."请填写正确的信息！"."\"".")".";"."</script>";
+        echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."Please enter the correct information！"."\"".")".";"."</script>";
         echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."http://127.0.0.1:8080/login.html"."\""."</script>";
         exit;
       }
