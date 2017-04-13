@@ -26,7 +26,7 @@ class MyDB extends SQLite3{
 		}
 	}
 
-$dir = 'sqlite:/Users/caren/Documents/2016-2017/School/CS196/Sp17/MyTime/temp/cs196.sqlite';
+$dir = 'sqlite:/Users/wanyu/Desktop/CS196/MyTime/temp/cs196.sqlite';
 $dbh = new PDO($dir) or die ("cannot open the database");
 $query = "SELECT TASK FROM CS1962";
 foreach ($dbh->query($query) as $row) {
