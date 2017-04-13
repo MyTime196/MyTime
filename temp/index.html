@@ -20,7 +20,7 @@ function showUser(str) {
             }
         };
         //xmlhttp.open("GET","getuser.php?q="+str,true);
-        xmlhttp.open("GET", "http://localhost:8000/getuser.php", true);
+        //xmlhttp.open("GET", "getuser.php?q="+str, true);
 		xmlhttp.send();
     }
 }
@@ -30,13 +30,15 @@ function showUser(str) {
 <body>
 
 <form>
-<select name="TASK" onchange="showUser(this.value)">
+<select onChange="window.location.href=this.value">
   <option value="">Select a task:</option>
-  <option value=“1”>MATH</option>
-  <option value="2">ENGLISH</option>
+   <option value=“http://localhost:8000/getuser.php?q=2”>MATH</option>
+  <option value="http://localhost:8000/getuser.php?q=2">ENGLISH</option>
  
   </select>
 </form>
+
+
 
 
 </body>
