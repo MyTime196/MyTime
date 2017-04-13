@@ -20,7 +20,7 @@ function showUser(str) {
             }
         };
         //xmlhttp.open("GET","getuser.php?q="+str,true);
-        xmlhttp.open("GET", "getuser.php", true);
+        xmlhttp.open("GET", "http://localhost:8000/getuser.php", true);
 		xmlhttp.send();
     }
 }
