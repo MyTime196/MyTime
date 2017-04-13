@@ -16,7 +16,7 @@ if($link)
         if($name==""||$password1=="")//determine whether it is empty
         {
           echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."please enter the information！"."\"".")".";"."</script>";
-          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."http://127.0.0.1:8080/register.html"."\""."</script>";
+          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."MyTime_SignUp.html"."\""."</script>";
           exit;
         }
         if($password1==$password2)//check the correctness of the password
@@ -29,7 +29,7 @@ if($link)
         {
 
         echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."This username has been used. Please choose another one."."\"".")".";"."</script>";
-        echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."http://127.0.0.1:8080/register.html"."\""."</script>";
+        echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."MyTime_SignUp.html"."\""."</script>";
         exit;
         }
 
@@ -43,13 +43,13 @@ if($link)
         {
           //close the database
           echo"sign up successfully！";
-          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."http://127.0.0.1:8080/return.html"."\""."</script>";
+          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."SignUpReturn.html"."\""."</script>";
         }
         }
         else
         {
           echo"<script type="."\""."text/javascript"."\"".">"."window.alert"."("."\""."the passwords you have entered are not the same！"."\"".")".";"."</script>";
-          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."http://127.0.0.1:8080/register.html"."\""."</script>";
+          echo"<script type="."\""."text/javascript"."\"".">"."window.location="."\""."MyTime_SignUp.html"."\""."</script>";
         }
       }
     }
