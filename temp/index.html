@@ -31,9 +31,9 @@
 
 <form>
 <select onChange="window.location.href=this.value">
-  <option value="">Select a task:</option>
-  <option value="http://localhost:8000//getuser.php?q=1">MATH</option>
-  <option value="http://localhost:8000//getuser.php?q=2">ENGLISH</option>
+  <option value="">Select a tag:</option>
+  <option value="http://localhost:8000//getuser.php?q=1">LIFE</option>
+  <option value="http://localhost:8000//getuser.php?q=2">SCHOOL</option>
 
  
   </select>
@@ -49,6 +49,7 @@
 <html>
 <body>
 <form action="myTimeInputTable.php" method="post">
+TASKNUM: <input type="int" name="id" /><br><br>
 TASK: <input type="text" name="task" /><br><br>
 TAG: <input type="text" name="tag" /><br><br>
 DURATION: <input type="int" name="duration" /><br><br>

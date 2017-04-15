@@ -20,18 +20,19 @@ th {text-align: left;}
 <?php
 $q = intval($_GET['q']);
 
-class MyDB extends SQLite3{
-	function _construct(){
-		$this->open(‘CS1962.db’);
-		}
-	}
-
+//class MyDB extends SQLite3{
+	//function _construct(){
+	//	$this->open(‘CS1962.db’);
+	//	}
+	//}
+if($q==1) $q=LIFE;
+if($q==2) $q=SCHOOL;
 
 
 $dir = 'sqlite:/Users/wanyu/Desktop/CS196/MyTime/temp/cs196.sqlite';
 $dbh = new PDO($dir) or die ("cannot open the database");
 
-$query = "SELECT * FROM CS1962";
+$query = "SELECT * FROM CS1962 WHERE TAG ='$q' ";
 //foreach ($dbh->query($query) as $row) {
 //for (int i = 0; i < 1000; i ++ ) {
 //	echo "this was found at index"+ i;
