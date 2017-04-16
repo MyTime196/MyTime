@@ -1,41 +1,17 @@
 <html>
-<head>
-<script>
-//function showUser(str) {
-    //if (str == "") {
-    //    document.getElementById("txtHint").innerHTML = "";
-    //    return;
-    //} else { 
-     //   if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-     //       xmlhttp = new XMLHttpRequest();
-     //   } else {
-            // code for IE6, IE5
-      //      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-      //  }
 
-      //  xmlhttp.onreadystatechange = function() {
-       //     if (this.readyState == 4 && this.status == 200) {
-       //         document.getElementById("txtHint").innerHTML = this.responseText;
-       //     }
-       // };
-        //xmlhttp.open("GET","getuser.php?q="+str,true);
-        //xmlhttp.open("GET", "getuser.php?q="+str, true);
-		//xmlhttp.send();
-   // }
-//}
-</script>
+<title>MyTime | Enter a Task!</title>
 
-</head>
 <body>
+<h1>Enter your task here!</h1>
+
+<!--SELECT A TAG BOX -->
 
 <form>
 <select onChange="window.location.href=this.value">
   <option value="">Select a tag:</option>
   <option value="http://localhost:8000//getuser.php?q=1">LIFE</option>
-  <option value="http://localhost:8000//getuser.php?q=2">SCHOOL</option>
-
- 
+  <option value="http://localhost:8000//getuser.php?q=2">SCHOOL</option> 
   </select>
 </form>
 
@@ -45,17 +21,61 @@
 </body>
 </html>
 
+
+
+<!--SUBMIT AREA.  PSOT INSERT INTO DB -->
 <br>
 <html>
 <body>
 <form action="myTimeInputTable.php" method="post">
-TASKNUM: <input type="int" name="id" /><br><br>
+TASK NUMBER: <input type="int" name="id" /><br><br>
 TASK: <input type="text" name="task" /><br><br>
+<!--TAG: <input type="text" name="tag" /><br><br> -->
 TAG: <input type="text" name="tag" /><br><br>
-DURATION: <input type="int" name="duration" /><br><br>
+DURATION:<input type="int" name="duration" /><br><br>
 DATE: <input type="text" name="date" /><br><br>
- 
+
 <input type="submit" />
 </form>
 </body>
+</html>
+
+
+
+
+
+<br>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChartJS - Pie Chart</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src = "Chart.js"></script>
+  </head>
+  <body>
+    <canvas id="mycanvas" width="256" height="256">
+    <script>
+      $(document).ready(function(){
+      var ctx = $ ("#mycanvas").get(0).getContext("2d");
+      var data = [
+        {
+          value: 270,
+          color: "cornflowerblue",
+          highlight: "lightskyblue",
+          label: "SCHOOL"
+        },
+        {
+          value: 90,
+          color: "lightgreen",
+          highlight: "yellowgreen",
+          label: "LIFE"
+
+        }
+      ];
+
+      //draw
+      var piechart = new Chart(ctx).Pie(data);
+      });
+    </script>
+  </body>
 </html>
