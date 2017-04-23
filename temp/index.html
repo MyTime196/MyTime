@@ -37,6 +37,26 @@ DATE: <input type="text" name="date" /><br><br>
 
 <input type="submit" />
 </form>
+
+
+
+
+
+<form action="http://localhost:8000//2Dchart.php">             
+    <input type="submit" value="Show Chart"/>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
 
@@ -44,38 +64,5 @@ DATE: <input type="text" name="date" /><br><br>
 
 
 
-<br>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>ChartJS - Pie Chart</title>
-    <script src="jquery-3.2.1.min.js"></script>
-    <script src = "Chart.js"></script>
-  </head>
-  <body>
-    <canvas id="mycanvas" width="256" height="256">
-    <script>
-      $(document).ready(function(){
-      var ctx = $ ("#mycanvas").get(0).getContext("2d");
-      var data = [
-        {
-          value: 270,
-          color: "cornflowerblue",
-          highlight: "lightskyblue",
-          label: "SCHOOL"
-        },
-        {
-          value: 90,
-          color: "lightgreen",
-          highlight: "yellowgreen",
-          label: "LIFE"
 
-        }
-      ];
-
-      //draw
-      var piechart = new Chart(ctx).Pie(data);
-      });
-    </script>
-  </body>
-</html>
+    

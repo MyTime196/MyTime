@@ -42,7 +42,7 @@ echo '<table>
       <th>TAG</th>
       <th>DURATION</th>
       <th>DATE</th>
-  </tr>';
+  </tr>'; 
 	//echo \n;	
 foreach ($dbh->query($query) as $row) {
   echo '
