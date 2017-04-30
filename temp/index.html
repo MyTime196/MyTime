@@ -1,0 +1,68 @@
+<html>
+
+<title>MyTime | Enter a Task!</title>
+
+<body>
+<h1>Enter your task here!</h1>
+
+<!--SELECT A TAG BOX -->
+
+<form>
+<select onChange="window.location.href=this.value">
+  <option value="">Select a tag:</option>
+  <option value="http://localhost:8000//getuser.php?q=1">LIFE</option>
+  <option value="http://localhost:8000//getuser.php?q=2">SCHOOL</option> 
+  </select>
+</form>
+
+
+
+
+</body>
+</html>
+
+
+
+<!--SUBMIT AREA.  PSOT INSERT INTO DB -->
+<br>
+<html>
+<body>
+<form action="myTimeInputTable.php" method="post">
+TASK NUMBER: <input type="int" name="id" /><br><br>
+TASK: <input type="text" name="task" /><br><br>
+<!--TAG: <input type="text" name="tag" /><br><br> -->
+TAG: <input type="text" name="tag" /><br><br>
+DURATION:<input type="int" name="duration" /><br><br>
+DATE: <input type="text" name="date" /><br><br>
+
+<input type="submit" />
+</form>
+
+
+
+
+
+<form action="http://localhost:8000//2Dchart.php">             
+    <input type="submit" value="Show Chart"/>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+    

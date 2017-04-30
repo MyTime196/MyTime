@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+function drawVisualization() {
+    var query = new google.visualization.Query(
+        'localhost:8000');
+
+    // Apply query language statement.
+    query.setQuery('SELECT TASK, DURATION FROM CS1962');
+    
+    // Send the query with a callback function.
+    query.send(handleQueryResponse);
+  }
+
+  function handleQueryResponse(response) {
+    if (response.isError()) {
+      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      return;
+    }
+
+    var data = response.getDataTable();
+    visualization = new google.visualization.PieChart(document.getElementById('visualization'));
+    visualization.draw(data, {legend: 'bottom'});
+  }
+ </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
