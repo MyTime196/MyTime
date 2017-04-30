@@ -7,108 +7,94 @@
 
 <body>
   <h1>Enter your task here!</h1>
-  <!--main-container class is anchored in the center and all the elements in it should be left-aligned.-->
-  <div class="main-container">
-    <div class="text-input">
-      <label>
-        Task Name:<span class="req">*</span>
-      </label>
-      <br>
-      <input type="text" required autocomplete="off">
-    
-    </div>
-    <div class="text-input">
-      <label>
-        Due Date:<span class="req">*</span>
-      </label>
-      <br>
-      <input type="text" required autocomplete="off">
-    </div>
-
-    <div class="drop-down">
-      <label>
-      Subject/Category:<span class="req">*</span>
-      </label>
-      <br>
-      <!--drop down option-->
-      <select>
-      	<option value="blank"></option>
-  		<option value="new">Create New...</option>
-  		<!--how do we make create new a pop up that stores the input in datbase? and not just another "category?-->
-	  </select>
-	  <!--how to store the choices in the database? so that all the ones saved in the database are saved? can we do this sepcific to a time period?-->
-    </div>
-
-    <div class="text-input">
-      <label>
-      Hours spent<span class="req">*</span>:
-      </label>
-      <br>
-      <input type="text" required autocomplete="off">
-      <!--make sure input is only numbers and decimals-->
-    </div>
-
-    <div class="text-input">
-      <label>
-      	Description:
-      </label>
-      <br>
-      <input type="text" required autocomplete="off">
-      <!--try to make this input type a large text box-->
-    </div>
-
-    <div class="rating">
-      <label>
-        Satisfaction for Today:
-      </label>
-      <br>
-      <input type="number" name="satisfaction" min="0" max="10">
-    </div>
-
-
-
-
-
-
-  </div>
-<b>Rating: <span id="range">5</span></b>
+  <!--main-container class is anchored in the center and all the elements in it should be left-aligned.
+  but this should be fine for now-->
+  <label>
+    Task Name:<span class="req">*</span>
+  </label>
+  <br>
+  <input type="text" required autocomplete="off">
+  
+  <label>
+    Task Number:<span class="req">*</span>
+  </label>
+  <br>
+  <input type="int" required autocomplete="off">
+  
+  <label>
+    Due Date:<span class="req">*</span>
+  </label>
+  <br>
+  <input type="text" required autocomplete="off">
+  
+  <label>
+    Subject/Category:<span class="req">*</span>
+  </label>
+  <br>
+  <!--drop down option-->
+  <select>
+    <option value="blank"></option>
+    <option value="new">Create New...</option>
+    <!--how do we make create new a pop up that stores the input in datbase? and not just another "category?-->
+  </select>
+    <!--how to store the choices in the database? so that all the ones saved in the database are saved? can we do this sepcific to a time period?-->
+  
+  <label>
+    Hours spent<span class="req">*</span>:
+  </label>
+  <br>
+  <input type="int" name="duration">
+  <!--make sure input is only numbers and decimals-->
+  
+  <label>
+    Description:
+  </label>
+  <br>
+  <input type="text" required autocomplete="off">
+  <!--try to make this input type a large text box-->
+  
+  <label>
+    Satisfaction for Today:
+  </label>
+  <br>
+  <!-- input type="number" name="satisfaction" min="0" max="10" -->
+    <b>Rating: <span id="range">5</span></b>
       <table width=420 cellpadding="10" cellspacing="0">
-      <tr>
-      <td align=center>
-      <input style=" background-color: orange; width: 400px; height 6px; margin-left: 20px;" name="lecturerating" type="range" min="1" max="10" value="5" step="1" onchange="showValue(this.value)">
-      </td>
-      </tr>
+        <tr>
+          <td align=center>
+            <input style="background-color: orange; width: 400px; height 6px; margin-left: 20px;" name="lecturerating" type="range" name="rating_val" min="1" max="10" value="5" step="1" onchange="showValue(this.value)">
+          </td>
+        </tr>
       </table>
 
       <table style="margin-left: 12px;" width="448" cellpadding="0" cellspacing="0">
-      <tr>
+        <tr>
 <!--      <input type="range" min="0" max="10" value="5" step="1" class="slider-width100" onchange="showValue(this.value)" />  -->
-      <td align=center>&nbsp;1</td>
-      <td align=center>&nbsp;2</td>
-      <td align=center>&nbsp;3</td>
-      <td align=center>&nbsp;4</td>
-      <td align=center>&nbsp;5</td>
-      <td align=center>&nbsp;6</td>
-      <td align=center>&nbsp;7</td>
-      <td align=center>&nbsp;8</td>
-      <td align=center>&nbsp;9</td>
-      <td align=center>10</td>
-      </tr>
+          <td align=center>&nbsp;1</td>
+          <td align=center>&nbsp;2</td>
+          <td align=center>&nbsp;3</td>
+          <td align=center>&nbsp;4</td>
+          <td align=center>&nbsp;5</td>
+          <td align=center>&nbsp;6</td>
+          <td align=center>&nbsp;7</td>
+          <td align=center>&nbsp;8</td>
+          <td align=center>&nbsp;9</td>
+          <td align=center>10</td>
+        </tr>
       </table>
 
 
-      </label>
-    </div>
+  </label>
 
-    <script type="text/javascript">
-      function showValue(newValue)
-      {
-  	document.getElementById("range").innerHTML=newValue;
-      }
-    </script>
-    <br>
-    <input style="height:50px; width:90px; margin-left:50px;" type="submit" value="Save" name="save">
-    <input style="height:50px; width:90px; margin-left:50px;" type="submit" value="Cancel" name="cancel"
+  <script type="text/javascript">
+    function showValue(newValue) {
+     document.getElementById("range").innerHTML=newValue;
+    }
+  </script>
+  <br>
+  <input style="height:50px; width:90px; margin-left:50px;" type="submit" value="Save" name="save">
+  <input style="height:50px; width:90px; margin-left:50px;" type="submit" value="Cancel" name="cancel"
+
 </body>
 
 </html>
