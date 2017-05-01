@@ -1,14 +1,55 @@
-
 <?php
 
- $dir = 'sqlite:' . $_SERVER['DOCUMENT_ROOT'] . '/cs196.sqlite';
-    echo ".";
+ $dir = 'sqlite:/Users/wanyu/Desktop/CS196/MyTime/temp/cs196.sqlite';
+    
   $dbh = new PDO($dir) or die ("cannot open the database");
-?>
 
-<html>
+
+
+     	// Form the SQL query that returns the top 10 most populous countries
+     	$strQuery = "SELECT DURATION, TASK FROM CS1962 ORDER BY DURATION";
+
+     	// Execute the query, or else return the error message.
+     	$result = $dbh->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}"); 
+
+     	// If the query returns a valid response, prepare the JSON string
+     	if ($result) {
+        	// The `$arrData` array holds the chart attributes and data
+        	$arrData = array(
+        	    "chart" => array(
+                  "caption" => "MyTime",
+                  "showValues" => "0",
+                  "theme" => "zune"
+              	)
+           	);
+
+        	$arrData["data"] = array();
+
+	// Push the data into the array
+        foreach($dbh->query($strQuery) as $row) {
+
+           	array_push($arrData["data"], array(
+              	"label" => $row["TASK"],
+              	"value" => $row["DURATION"]
+              	)
+           	);
+        	}
+          $jsonEncodedData = json_encode($arrData);
+          $fp = fopen('results.json', 'w');
+          fwrite($fp, $jsonEncodedData);
+          fclose($fp);
+          
+
+        	// Close the database connection
+        	//$dbh->close();
+     	}
+
+  	?>
+
+
+  <html>
    <head>
-  	<title>MyTime Chart</title>
+    <title>MyTime Chart</title>
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
     <script src="d3-tip.js"></script>
     <script type="text/javascript">
@@ -24,15 +65,17 @@
   //   {"label":"Dinner","value":"120"},
   //   {"label":"sleep","value":"100"}
   // ]
-  d3.json("sampleData.json", function(error, data){
+  d3.json("results.json", function(error, json){
+    if (error) return console.warn(error);
+    data = json["data"];
     data.forEach(function(d) {
-      d.data=parseData(d.data);
-      d.close= +d.close;
+      //d.data=parseData(d.data);
+      d.value= +d.value;
     });
 
 
-var data = dataFromYou[0].data;
-console.log(dataFromYou[0].data);
+//var data = dataFromYou[0].data;
+//console.log(dataFromYou[0].data);
 
 var width = 500,
     height = 500,
@@ -95,50 +138,20 @@ var svg = d3.select("body").append("svg")
         .text(function (d) {
             return d.data.value;
     });
-    
+      });
+
+        //Get the data
+    //d3.json("results.json", function(error, data) {
+        
     </script>
   </head>
    <body style="margin: 200px; color:white">
-    <?php
-     	// Form the SQL query that returns the top 10 most populous countries
-     	$strQuery = "SELECT DURATION, TASK FROM CS1962 ORDER BY DURATION";
-
-     	// Execute the query, or else return the error message.
-     	$result = $dbh->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}"); 
-
-     	// If the query returns a valid response, prepare the JSON string
-     	if ($result) {
-        	// The `$arrData` array holds the chart attributes and data
-        	$arrData = array(
-        	    "chart" => array(
-                  "caption" => "MyTime",
-                  "showValues" => "0",
-                  "theme" => "zune"
-              	)
-           	);
-
-        	$arrData["data"] = array();
-
-	// Push the data into the array
-        	foreach($dbh->query($strQuery) as $row) {
-
-           	array_push($arrData["data"], array(
-              	"label" => $row["TASK"],
-              	"value" => $row["DURATION"]
-              	)
-           	);
-        	}
-          $jsonEncodedData = json_encode($arrData);
-          $fp = fopen('results.json', 'w');
-          fwrite($fp, $jsonEncodedData);
-          fclose($fp);
+    
+          
           
 
-        	// Close the database connection
-        	//$dbh->close();
-     	}
-
-  	?>
+    
    </body>
 
 </html>
+
