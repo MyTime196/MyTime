@@ -2,32 +2,31 @@
 
 
 
-body
-{
-background-image: url("back.jpg");
-background-repeat: repeat;
+body {
+	background: #afd1ea;
 }
 
 h1{
-font-family: Papyrus, fantasy;
-	font-size: 24px;
+	font-family: Papyrus;
+	font-size: 30px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
 	line-height: 26.4px;
+	padding-left: 20px;
 }
 
 .button {
-    background-color: black;
+    background-color: #27233e;
     color: white;
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     margin: 4px 8px;
     cursor: pointer;
     float: right;
-    font-family: "Times New Roman", Georgia, Serif;
+    font-family: "Century Gothic";
 }
 
 .mainPage {
@@ -37,7 +36,7 @@ font-family: Papyrus, fantasy;
 }
 .introduction{
     margin: auto;
-    width: 60%;
+    /*width: 60%; */
     padding: 10px;
 }
 
@@ -56,25 +55,39 @@ p4{
 } 
 
 
-p2{
-	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
-	font-size: 40px;
+#manage{
+	font-family: "Century Gothic";
+	font-size: 60px;
 	font-style: normal;
 	font-variant: normal;
-	font-weight: 400;
-	line-height: 20px;
-	text-align: left;
+	font-weight: 700;
+	line-height: 0px;
+	text-align: center;
 }
 
 
 p3{
-	font-family: Papyrus, fantasy;
-	font-size: 20px;
+	font-family: "Century Gothic";
+	font-size: 25px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 500;
-	line-height: 26.4px;
+	line-height: 0px;
 	text-align: center;
+}
+
+ul {
+	list-style: none;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+
+li {
+	display: inline;
+	padding-right: 20px;
+	padding-left: 20px;
+	
 }
 
 
